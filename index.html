@@ -54,17 +54,13 @@
                     <h1>Intro</h1>
                 </section>
 
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
+                <section>
+                    <h2>Aufgabenstellung</h2>
+                    <ul>
+                        <li>Offizielle <a href="http://edu.panter.ch/Mesh">Aufgabenstellung</a></li>
+                        <li>Kennen wir alle</li>
+                    </ul>
+                </section>
 
                 <section class="chapter" data-background="#e7ad52">
                     <h1>Lösungskonzept</h1>
@@ -84,6 +80,27 @@
                     <h2>Funktionsweise der Knoten</h2>
                     <p>Verteilung der Pakete</p>
                     <img src="img/boss_worker.png">
+                </section>
+
+                <section>
+                    <h2>Funktionsweise der Knoten</h2>
+                    <p>Boss-Worker: Implementierung mit Pthreads</p>
+					<pre><code data-trim contenteditable>
+while (1) {
+    // wait for next package
+    newsockfd = wait_for_connection(sockfd);
+
+    // let worker handle package
+    pthread_create(&workers[thread_counter], NULL, worker_init, (void *)newsockfd);
+
+    // alternate workers
+    thread_counter += 1;
+    if (thread_counter >= NUM_WORKERS) {
+        thread_counter = 0;
+    }
+}
+                    </code></pre>
+                    <p>Details: Siehe <a href="https://github.com/elHornair/mesh/blob/master/src/main.c#L84">Github</a></p>
                 </section>
 
                 <section>
@@ -141,15 +158,6 @@
                 </section>
 
                 <section>
-                    <h2>Placeholder</h2>
-                    <ul>
-                        <li>placeholder</li>
-                        <li>placeholder</li>
-                        <li>placeholder</li>
-                    </ul>
-                </section>
-
-                <section>
                     <h2>Erreichen des Ziels</h2>
                     <ul>
                         <li>Nur bei Quell- und Zielknoten möglich</li>
@@ -162,69 +170,41 @@
                 </section>
 
                 <section class="chapter" data-background="#e7ad52">
-                    <h1>Lessons learned?</h1>
+                    <h1>Lessons learned</h1>
+                </section>
+
+                <section>
+                    <h2>Lessons learned</h2>
+                    <ul>
+                        <li>Geteilte Ressourcen immer locken</li>
+                        <li>Debugging: Gnu Debugger (GDB)</li>
+                        <li>Github rockt - Auch für Schulprojekte :)</li>
+                    </ul>
                 </section>
 
                 <section class="chapter" data-background="#e7ad52">
-                    <h1>Demo?</h1>
+                    <h1>Demo</h1>
                 </section>
 
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<section>
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
+                <section>
+                    <h2>Demo</h2>
+                    <ul>
+                        <li>Python-Testprogramm</li>
+                        <li>1 Startknoten</li>
+                        <li>1 Zielknoten</li>
+                        <li>10 Verbindungsknoten</li>
+                        <li>3 Pakete</li>
+                    </ul>
+                </section>
 
                 <section class="chapter" data-background="#e7ad52">
                     <h1>Outro</h1>
                 </section>
 
 				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-					</a>
-				</section>
+					<h2>Fragen?</h2>
+                    <img src="img/questions.jpg">
+                </section>
 
 				<section>
 					<h2>Weiterführende Links</h2>
