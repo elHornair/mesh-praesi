@@ -1,3 +1,11 @@
 .colored {
     color: #e7ad52;
 }
+
+.chapter h1 {
+    color: #111111;
+}
+
+.reveal section img {
+    background-color: #cccccc;
+}
